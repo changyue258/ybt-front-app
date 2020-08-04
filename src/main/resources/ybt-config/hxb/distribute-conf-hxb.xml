@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Distributes>
+	<Distribute>
+		<AgencyTypeCode>08</AgencyTypeCode>
+		<Enabled>false</Enabled>
+		<StrategyKeyClass>com.sinosoft.agency.hxb.distribute.HXBStrategyKey</StrategyKeyClass>
+		<Strategies>
+			<Strategy transCode="*" provBranchNo="*" riskCode="*" salesChnl="*">
+				<SysInfo>
+					<Host>localhost</Host>
+					<Port>8001</Port>
+					<UseRsp>true</UseRsp>
+					<Ciphertext>true</Ciphertext>
+					<MessageHeaderClass>com.sinosoft.agency.hxb.distribute.HXBMessageHeader</MessageHeaderClass>
+				</SysInfo>
+			</Strategy>
+		</Strategies>
+	</Distribute>
+</Distributes>

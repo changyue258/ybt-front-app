@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agency xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="Agency.xsd">
+	<agencyCode outCode="HXB">08</agencyCode>
+	
+	<messageCharset>GBK</messageCharset>
+
+	<socketNetClassName>com.sinosoft.agency.hxb.HXBSocketNetImpl</socketNetClassName>
+
+	<serviceClassName>com.sinosoft.agency.hxb.HXBService</serviceClassName>
+	
+	<businesses>
+	
+		<!-- 柜面渠道 -->
+		<business>
+			<name>新单核保</name>
+			<transCode outCode="OPR001">01</transCode>
+			<messageFormat>
+				<className>com.sinosoft.ybframework.gateway.provider.XmlMessageFormatProvider</className>
+				<xsl>
+					<path type="req">format/hxb/CheckApplReq.xsl</path>
+					<path type="rsp">format/hxb/CheckApplResp.xsl</path>
+				</xsl>
+			</messageFormat>
+		</business>
+		
+		<!-- 电子渠道 -->
+		<business>
+			<name>新单核保</name>
+			<transCode outCode="10">01</transCode>
+			<messageFormat>
+				<className>com.sinosoft.ybframework.gateway.provider.XmlMessageFormatProvider</className>
+				<xsl>
+					<path type="req">format/hxb/CheckApplReqEE.xsl</path>
+					<path type="rsp">format/hxb/CheckApplRespEE.xsl</path>
+				</xsl>
+			</messageFormat>
+		</business>
+		
+		<!-- 柜面渠道 -->
+		<business>
+			<name>新单承保</name>
+			<transCode outCode="OPR011">02</transCode>
+			<messageFormat>
+				<className>com.sinosoft.ybframework.gateway.provider.XmlMessageFormatProvider</className>
+				<xsl>
+					<path type="req">format/hxb/AcceptApplReq.xsl</path>
+					<path type="rsp">format/hxb/AcceptApplResp.xsl</path>
+				</xsl>
+			</messageFormat>
+		</business>
+		
+		<!-- 电子渠道 -->
+		<business>
+			<name>新单承保</name>
+			<transCode outCode="11">0102</transCode>
+			<messageFormat>
+				<className>com.sinosoft.ybframework.gateway.provider.XmlMessageFormatProvider</className>
+				<xsl>
+					<path type="req">format/hxb/CheckApplReqEE.xsl</path>
+					<path type="rsp">format/hxb/AcceptApplRespEE.xsl</path>
+				</xsl>
+			</messageFormat>
+		</business>
+		
+		<!-- 柜面渠道 -->
+		<business>
+			<name>当日撤单</name>
+			<transCode outCode="OPR911">03</transCode>
+			<messageFormat>
+				<className>com.sinosoft.ybframework.gateway.provider.XmlMessageFormatProvider</className>
+				<xsl>
+					<path type="req">format/hxb/CancelApplReq.xsl</path>
+					<path type="rsp">format/hxb/CancelApplResp.xsl</path>
+				</xsl>
+			</messageFormat>
+		</business>
+		
+		<!-- 电子渠道 -->
+		<business>
+			<name>当日撤单</name>
+			<transCode outCode="12">03</transCode>
+			<messageFormat>
+				<className>com.sinosoft.ybframework.gateway.provider.XmlMessageFormatProvider</className>
+				<xsl>
+					<path type="req">format/hxb/CancelApplReqEE.xsl</path>
+					<path type="rsp">format/hxb/CancelApplRespEE.xsl</path>
+				</xsl>
+			</messageFormat>
+		</business>
+		
+		<!-- 柜面渠道 -->
+		<business>
+			<name>保单重打</name>
+			<transCode outCode="SPE002">04</transCode>
+			<messageFormat>
+				<className>com.sinosoft.ybframework.gateway.provider.XmlMessageFormatProvider</className>
+				<xsl>
+					<path type="req">format/hxb/PrintPolicyReq.xsl</path>
+					<path type="rsp">format/hxb/PrintPolicyResp.xsl</path>
+				</xsl>
+			</messageFormat>
+		</business>
+		
+		<!-- 电子渠道和柜面渠道相同 -->
+		<business>
+			<name>犹豫期退保申请</name>
+			<transCode outCode="13">12</transCode>
+			<messageFormat>
+				<className>com.sinosoft.ybframework.gateway.provider.XmlMessageFormatProvider</className>
+				<xsl>
+					<path type="req">format/hxb/ApplyHesCancelCntrReq.xsl</path>
+					<path type="rsp">format/hxb/ApplyHesCancelCntrResp.xsl</path>
+				</xsl>
+			</messageFormat>
+		</business>
+		
+	</businesses>
+</Agency>

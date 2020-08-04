@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Agency">
+		<xs:annotation>
+			<xs:documentation>代理机构</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="agencyCode">
+					<xs:annotation>
+						<xs:documentation>代理机构代码</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="outCode" type="xs:string">
+									<xs:annotation>
+										<xs:documentation>外部代码</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="messageCharset" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>报文编码格式</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="socketNetClassName" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>socket网络处理类</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="serviceClassName" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>业务处理服务类</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="businesses">
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element ref="business" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="business">
+		<xs:annotation>
+			<xs:documentation>交易配置</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="name" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>交易名称</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="transCode">
+					<xs:annotation>
+						<xs:documentation>交易代码</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="outCode" type="xs:string">
+									<xs:annotation>
+										<xs:documentation>交易外部代码</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="messageFormat" minOccurs="0"/>
+				<xs:element name="serviceClassName" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>业务处理服务类</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="ext" minOccurs="0"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="messageFormat">
+		<xs:annotation>
+			<xs:documentation>报文转换</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="className" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>转换处理类</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="xsl" minOccurs="0"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="xsl">
+		<xs:annotation>
+			<xs:documentation>样式表信息</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="2">
+				<xs:element name="path">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="type">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="req"/>
+											<xs:enumeration value="rsp"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:attribute>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ext">
+		<xs:annotation>
+			<xs:documentation>扩展项</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element ref="property"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="property">
+		<xs:annotation>
+			<xs:documentation>属性</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="value" type="xs:string"/>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Distributes>
+	<Distribute>
+		<AgencyTypeCode>18</AgencyTypeCode><!--银行代码-->
+		<Enabled>true</Enabled><!--是否启用分发true、false-->
+		<StrategyKeyClass>com.sinosoft.agency.hxb.distribute.HXBStrategyKey</StrategyKeyClass>
+		<!--分发策略实现类、默认按交易码分发，如果需要按照省份（地区）、险种、
+		渠道需实现相应接口自己编写相应逻辑-->
+		<Strategies>
+			<Strategy transCode="1802" provBranchNo="*" riskCode="*" salesChnl="*">
+				<SysInfo>
+					<Host>localhost</Host>
+					<Port>8001</Port>
+					<UseRsp>true</UseRsp>
+					<Ciphertext>true</Ciphertext>
+					<MessageHeaderClass>com.sinosoft.agency.hxb.distribute.HXBMessageHeader</MessageHeaderClass>
+				</SysInfo>
+			</Strategy>
+		</Strategies>
+	</Distribute>
+</Distributes>

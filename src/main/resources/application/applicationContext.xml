@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<!-- 支持注解 -->
+	<context:annotation-config/>
+	
+	<!-- 自动扫描的包 -->
+	<context:component-scan base-package="com.sinosoft" use-default-filters="false">
+		<!-- 通过注解过虑被扫描的类 -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>	
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>	
+	</context:component-scan>
+	
+	<bean id="springUtil" class="com.sinosoft.ybframework.core.util.SpringUtil"></bean>
+	
+	<bean id="MessageValidate" class="com.sinosoft.ybframework.gateway.service.MessageValidateUtil" init-method="init"></bean>
+	
+	<bean id="TransCallPostService" class="com.sinosoft.ybframework.gateway.service.TransCallPostServiceUtil" init-method="init"></bean>
+	
+	<bean id="messageSaveProvider" class="com.sinosoft.ybframework.gateway.provider.LocalMessageSaveProvider">
+		<property name="asynchronous">
+			<value>true</value>
+		</property>
+		<property name="saveParPath">
+			<value>/home/tomcat/log/msg</value>
+		</property>
+	</bean>
+	
+	<bean id="stdTransCodeProvider" class="com.sinosoft.ybframework.gateway.provider.TransCodeProvider" init-method="init">
+		<property name="transCodeXpath">
+			<value>ReqHead/TransCode</value>
+		</property>
+	</bean>
+	
+	<bean id="serverFactory" class="com.sinosoft.ybframework.gateway.ServerFactoryBean" destroy-method="close">
+		<property name="configLocation">
+			<value>classpath:ybt-config/socket-config.xml</value>
+		</property>
+	</bean>
+
+	<bean id="distributeTransFactory" class="com.sinosoft.ybframework.gateway.distribute.DistributeTransFactoryBean">
+		<property name="configLocation">
+			<value>classpath:ybt-config/hxb/distribute-conf-hxb.xml</value>
+		</property>
+	</bean>
+
+</beans>

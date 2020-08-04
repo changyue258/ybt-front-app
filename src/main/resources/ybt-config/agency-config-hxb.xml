@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agency xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="Agency.xsd">
+	<agencyCode outCode="HXB">18</agencyCode>
+	<messageCharset>GBK</messageCharset>
+	<socketNetClassName>com.sinosoft.agency.hxb.HXBSocketNetImpl</socketNetClassName>
+	<serviceClassName>com.sinosoft.agency.hxb.HXBService</serviceClassName>
+	<businesses>
+		<business>
+			<name>新单核保</name>
+			<transCode outCode="10">1800</transCode>
+			<messageFormat>
+				<className>com.sinosoft.ybframework.gateway.provider.XmlMessageFormatProvider</className>
+				<xsl>
+					<path type="req">format/hxb/CheckApplReqEE.xsl</path>
+					<path type="rsp">format/hxb/CheckApplRespEE.xsl</path>
+				</xsl>
+			</messageFormat>
+		</business>
+		<business>
+			<name>新单承保</name>
+			<transCode outCode="11">1801</transCode>
+			<messageFormat>
+				<className>com.sinosoft.ybframework.gateway.provider.XmlMessageFormatProvider</className>
+				<xsl>
+					<path type="req">format/hxb/CheckApplReqEE.xsl</path>
+					<path type="rsp">format/hxb/AcceptApplRespEE.xsl</path>
+				</xsl>
+			</messageFormat>
+		</business>
+		<!--以下分发交易配置-->
+		<business>
+			<name>当日撤单</name>
+			<transCode outCode="12">1802</transCode>
+		</business>
+		<business>
+			<name>保单重打</name>
+			<transCode outCode="15">1802</transCode>
+		</business>
+		<business>
+			<name>当日撤单</name>
+			<transCode outCode="12">1802</transCode>
+		</business>
+		<business>
+			<name>犹豫期退保申请</name>
+			<transCode outCode="13">1803</transCode>
+		</business>
+		<business>
+			<name>续期查询</name>
+			<transCode outCode="90">1804</transCode>
+		</business>
+		<business>
+			<name>续期缴费</name>
+			<transCode outCode="91">1805</transCode>
+		</business>
+	</businesses>
+</Agency>

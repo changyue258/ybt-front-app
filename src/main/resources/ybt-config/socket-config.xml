@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SocketConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="socket-config.xsd">
+	 <socketInfo>
+		 <agencyTypeCode>18</agencyTypeCode>
+		 <port>18008</port>
+		 <socketClassName>com.sinosoft.agency.hxb.HXBBusiSocket</socketClassName>
+		 <serverClassName>com.sinosoft.ybframework.gateway.net.ThreadPoolSocketServer</serverClassName>
+		 <remark>华夏银行</remark>
+	</socketInfo>
+</SocketConfig>
